@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Pátio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- jsPDF para PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- html2canvas para imagem -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <h1>Controle de Pátio - Passagem de Serviço</h1>
 
+    <!-- Formulário -->
+    <div class="form-container">
+        <input type="number" id="num" placeholder="Nº">
+        <input type="text" id="trem" placeholder="TREM">
+        <input type="text" id="orig" placeholder="ORIG">
+        <input type="time" id="part">
+        <input type="text" id="dest" placeholder="DEST">
+        <input type="time" id="cheg">
+        <input type="time" id="partReal">
+        <input type="time" id="chegReal">
+        <input type="text" id="obs" placeholder="OBSERVAÇÕES">
+        <button onclick="adicionarTrem()">Adicionar</button>
+    </div>
+
+    <!-- Tabela -->
+    <table id="tabela">
+        <thead>
+            <tr>
+                <th>Nº</th>
+                <th>TREM</th>
+                <th>ORIG</th>
+                <th>PART</th>
+                <th>DEST</th>
+                <th>CHEG</th>
+                <th>PART REAL</th>
+                <th>STATUS PARTIDA</th>
+                <th>CHEG REAL</th>
+                <th>STATUS CHEGADA</th>
+                <th>OBSERVAÇÕES</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <!-- Gráfico -->
+    <div class="grafico-container">
+        <canvas id="graficoStatus"></canvas>
+    </div>
+
+    <!-- Botões -->
+    <div class="botoes">
+        <input type="text" id="tituloRelatorio" placeholder="Data e Turno">
+        <button onclick="gerarPDF()">Gerar PDF</button>
+        <button onclick="gerarImagem()">Gerar Imagem</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
